@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div id="app"></div>
+<div id="canvas"></div>
+<div id="editFrame">
+<div>
+        <img id="editHandle" src="imgs/editHandleIn.png"></img>
+    </div>
+    <div id="editor">
+    </div>
+</div> 
+
+<script src="Scripts/jquery-1.10.2.min.js"></script>
+<script src="Scripts/build/three.js"></script>
+<script src="Scripts/ThreeCSG.js"></script>
+<script src="Scripts/app/AssimpJSONLoader.js"></script>
+<script src="Scripts/SimpleAjaxUploader.js"></script>
+<script src="Scripts/app/axes.js"></script>
+<script src="Scripts/app/STLLoader.js"></script>
+<script src="Scripts/app/ColladaLoader.js"></script>
+<script src="Scripts/app/stats.min.js"></script>
+<script src="Scripts/app/modelloader.js"></script>
+<script src="Scripts/app/DragControls.js"></script>
+<script src="Scripts/app/TrackballControls.js"></script>
+<script src="Scripts/loaders/AudioLoader.js" type="module"></script>
+    <script src="Scripts/loaders/BufferGeometryLoader.js" type="module"></script>
+    <script src="Scripts/loaders/Cache.js" type="module"></script>
+    <script src="Scripts/loaders/CompressedTextureLoader.js" type="module"></script>
+    <script src="Scripts/loaders/CubeTextureLoader.js" type="module"></script>
+    <script src="Scripts/loaders/DataTextureLoader.js" type="module"></script>
+    <script src="Scripts/loaders/FileLoader.js" type="module"></script>
+    <script src="Scripts/loaders/FontLoader.js" type="module"></script>
+    <script src="Scripts/loaders/ImageLoader.js" type="module"></script>
+    <script src="Scripts/loaders/JSONLoader.js" type="module"></script>
+    <script src="Scripts/loaders/LoadingManager.js" type="module"></script>
+    <script src="Scripts/loaders/MaterialLoader.js" type="module"></script>
+    <script src="Scripts/loaders/ObjectLoader.js" type="module"></script>
+    <script src="Scripts/loaders/TextureLoader.js" type="module"></script>
+
+    <script src="Scripts/app/Loader.js" type="module"></script>
+    <script src="Scripts/commands/AddObjectCommand.js" type="module"></script>
+    <script src="Scripts/commands/AddScriptCommand.js" type="module"></script>
+    <script src="Scripts/commands/MoveObjectCommand.js" type="module"></script>
+    <script src="Scripts/commands/MultiCmdsCommand.js" type="module"></script>
+    <script src="Scripts/commands/RemoveObjectCommand.js" type="module"></script>
+    <script src="Scripts/commands/RemoveScriptCommand.js" type="module"></script>
+    <script src="Scripts/commands/SetColorCommand.js" type="module"></script>
+    <script src="Scripts/commands/SetGeometryCommand.js" type="module"></script>
+    <script src="Scripts/commands/SetGeometryValueCommand.js" type="module"></script>
+    <script src="Scripts/commands/SetMaterialColorCommand.js" type="module"></script>
+    <script src="Scripts/commands/SetMaterialCommand.js" type="module"></script>
+    <script src="Scripts/commands/SetMaterialMapCommand.js" type="module"></script>
+    <script src="Scripts/commands/SetMaterialValueCommand.js" type="module"></script>
+    <script src="Scripts/commands/SetPositionCommand.js" type="module"></script>
+    <script src="Scripts/commands/SetRotationCommand.js" type="module"></script>
+    <script src="Scripts/commands/SetScaleCommand.js" type="module"></script>
+    <script src="Scripts/commands/SetSceneCommand.js" type="module"></script>
+    <script src="Scripts/commands/SetScriptValueCommand.js" type="module"></script>
+    <script src="Scripts/commands/SetUuidCommand.js" type="module"></script>
+    <script src="Scripts/commands/SetValueCommand.js" type="module"></script>
+    <script src="Scripts/libs/acorn/acorn.js" type="module"></script>
+    <script src="Scripts/libs/acorn/acorn_loose.js" type="module"></script>
+    <script src="Scripts/libs/acorn/walk.js" type="module"></script>
+
+    <script src="Scripts/libs/codemirror/codemirror.js" type="module"></script>
+    <script src="Scripts/libs/codemirror/addon/dialog.js">  </script>
+    <script src="Scripts/libs/codemirror/addon/show-hint.js" type="module"></script>
+    <script src="Scripts/libs/codemirror/addon/tern.js" type="module"></script>
+    <script src="Scripts/libs/codemirror/mode/glsl.js" type="module"></script>
+    <script src="Scripts/libs/codemirror/mode/javascript.js" type="module"></script>
+    <script src="Scripts/libs/tern-threejs/threejs.js" type="module"></script>
+    <script src="Scripts/libs/ternjs/comment.js" type="module"></script>
+    <script src="Scripts/libs/ternjs/def.js" type="module"></script>
+    <script src="Scripts/libs/ternjs/doc_comment.js" type="module"></script>
+    <script src="Scripts/libs/ternjs/infer.js" type="module"></script>
+    <script src="Scripts/libs/ternjs/polyfill.js" type="module"></script>
+    <script src="Scripts/libs/ternjs/signal.js" type="module"></script>
+    <script src="Scripts/libs/ternjs/tern.js" type="module"></script>
+    <script src="Scripts/libs/app.js" type="module"></script>
+    <script src="Scripts/libs/glslprep.min.js" type="module"></script>
+    <script src="Scripts/libs/html2canvas.js" type="module"></script>
+    <script src="Scripts/libs/jsonlint.js" type="module"></script>
+    <script src="Scripts/libs/signals.min.js" type="module"></script>
+    <script src="Scripts/libs/three.html.js" type="module"></script>
+    <script src="Scripts/libs/ui.js" type="module"></script>
+    <script src="Scripts/libs/ui.three.js" type="module"></script>
+    <script src="Scripts/libs/esprima.js" type="module"></script>
+
+    <script src="Scripts/animation/tracks/BooleanKeyframeTrack.js" type="module"></script>
+    <script src="Scripts/animation/tracks/ColorKeyframeTrack.js" type="module"></script>
+    <script src="Scripts/animation/tracks/NumberKeyframeTrack.js" type="module"></script>
+    <script src="Scripts/animation/tracks/QuaternionKeyframeTrack.js" type="module"></script>
+    <script src="Scripts/animation/tracks/StringKeyframeTrack.js" type="module"></script>
+    <script src="Scripts/animation/tracks/VectorKeyframeTrack.js" type="module"></script>
+    <script src="Scripts/animation/AnimationAction.js" type="module"></script>
+    <script src="Scripts/animation/AnimationClip.js" type="module"></script>
+    <script src="Scripts/animation/AnimationMixer.js" type="module"></script>
+    <script src="Scripts/animation/AnimationObjectGroup.js" type="module"></script>
+    <script src="Scripts/animation/AnimationUtils.js" type="module"></script>
+    <script src="Scripts/animation/KeyframeTrack.js" type="module"></script>
+    <script src="Scripts/animation/KeyframeTrackConstructor.js" type="module"></script>
+    <script src="Scripts/animation/KeyframeTrackPrototype.js" type="module"></script>
+    <script src="Scripts/animation/PropertyBinding.js" type="module"></script>
+    <script src="Scripts/animation/PropertyMixer.js" type="module"></script>
+    <script src="Scripts/core/BufferAttribute.js" type="module"></script>
+    <script src="Scripts/core/BufferGeometry.js" type="module"></script>
+    <script src="Scripts/core/Clock.js" type="module"></script>
+    <script src="Scripts/core/DirectGeometry.js" type="module"></script>
+    <script src="Scripts/core/EventDispatcher.js" type="module"></script>
+    <script src="Scripts/core/Face3.js" type="module"></script>
+    <script src="Scripts/core/Geometry.js" type="module"></script>
+    <script src="Scripts/core/InstancedBufferAttribute.js" type="module"></script>
+    <script src="Scripts/core/InstancedBufferGeometry.js" type="module"></script>
+    <script src="Scripts/core/InstancedInterleavedBuffer.js" type="module"></script>
+    <script src="Scripts/core/InterleavedBuffer.js" type="module"></script>
+    <script src="Scripts/core/InterleavedBufferAttribute.js" type="module"></script>
+    <script src="Scripts/core/Layers.js" type="module"></script>
+    <script src="Scripts/core/Object3D.js" type="module"></script>
+    <script src="Scripts/core/Raycaster.js" type="module"></script>
+    <script src="Scripts/core/Uniform.js" type="module"></script>
+    <script src="Scripts/extras/ShapeUtils.js" type="module"></script>
+    <script src="Scripts/extras/SceneUtils.js" type="module"></script>
+    <script src="Scripts/extras/objects/ImmediateRenderObject.js" type="module"></script>
+    <script src="Scripts/extras/curves/SplineCurve.js" type="module"></script>
+    <script src="Scripts/extras/curves/QuadraticBezierCurve3.js" type="module"></script>
+    <script src="Scripts/extras/curves/QuadraticBezierCurve.js" type="module"></script>
+    <script src="Scripts/extras/curves/LineCurve3.js" type="module"></script>
+    <script src="Scripts/extras/curves/LineCurve.js" type="module"></script>
+    <script src="Scripts/extras/curves/EllipseCurve.js" type="module"></script>
+    <script src="Scripts/extras/curves/CubicBezierCurve3.js" type="module"></script>
+    <script src="Scripts/extras/curves/CubicBezierCurve.js" type="module"></script>
+    <script src="Scripts/extras/curves/CatmullRomCurve3.js" type="module"></script>
+    <script src="Scripts/extras/curves/ArcCurve.js" type="module"></script>
+    <script src="Scripts/extras/core/ShapePath.js" type="module"></script>
+    <script src="Scripts/extras/core/Shape.js" type="module"></script>
+    <script src="Scripts/extras/core/PathPrototype.js" type="module"></script>
+    <script src="Scripts/extras/core/Path.js" type="module"></script>
+    <script src="Scripts/extras/core/Interpolations.js" type="module"></script>
+    <script src="Scripts/extras/core/Font.js" type="module"></script>
+    <script src="Scripts/extras/core/CurvePath.js" type="module"></script>
+    <script src="Scripts/extras/core/Curve.js" type="module"></script>
+    <script src="Scripts/geometries/BoxGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/CircleGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/ConeGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/CylinderGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/DodecahedronGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/EdgesGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/ExtrudeGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/Geometries.js" type="module"></script>
+    <script src="Scripts/geometries/IcosahedronGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/LatheGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/OctahedronGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/ParametricGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/PlaneGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/PolyhedronGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/RingGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/ShapeGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/SphereGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/TetrahedronGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/TextGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/TorusGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/TorusKnotGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/TubeGeometry.js" type="module"></script>
+    <script src="Scripts/geometries/WireframeGeometry.js" type="module"></script>
+    <script src="Scripts/helpers/AxesHelper.js" type="module"></script>
+    <script src="Scripts/helpers/GridHelper.js" type="module"></script>
+<script src="build/app.bundle.js"></script>
+</body>
+</html>
