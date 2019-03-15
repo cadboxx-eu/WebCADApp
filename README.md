@@ -1,2 +1,2 @@
 # WebCADApp
-React.js, Three.js
+CAD web app built in React.js and Three.js
