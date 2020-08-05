@@ -23,7 +23,7 @@
     "connect-busboy": "0.0.2",
     "create-react-class": "^15.6.2",
     "css-loader": "^0.28.8",
-    "express-fileupload": "^0.4.0",
+    "express-fileupload": "^1.1.9",
     "fine-uploader": "^5.15.5",
     "fine-uploader-wrappers": "^1.0.1",
     "formidable": "^1.1.1",
